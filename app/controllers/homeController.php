@@ -3,6 +3,14 @@
 require ("../app/persistances/blogPostData.php");
 require ("../config/database.php");
 
-var_dump(lastBlogPosts($pdo));
+
+try{
+    $result = lastBlogPosts($pdo);
+}catch (Exception $e){
+    echo ("Nous avons eu une exception : " . $e->getMessage() . "\n");
+}
 
 ?>
+
+
+<?php include "../ressources/views/home.tpl.php"; ?>

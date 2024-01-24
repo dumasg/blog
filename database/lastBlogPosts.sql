@@ -1,0 +1,1 @@
+SELECT title, content, name FROM articles JOIN authors ON articles.authors_id = authors.id ORDER BY publication_date DESC LIMIT 10;
