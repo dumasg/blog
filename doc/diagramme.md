@@ -24,3 +24,13 @@ blogPostData.php-->>homeController.php: blogPosts
 homeController.php->>home.tpl.php: blogPosts
 home.tpl.php-->>User: display blogPosts
 ```
+
+```mermaid
+graph TD
+A[Afficher un article] --> B[sélection d'un article]
+B --> C[Affichage de la page article]
+C -->D{Requete à la BD}
+D -- Yes --> E[Affichage de la page avec l'article]
+D -- No --> F[Affichage d'une erreure]
+E --> G[Fin]
+```
