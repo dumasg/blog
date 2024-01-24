@@ -28,8 +28,17 @@ function blogPostById($pdo,$idArticle){
 
 
 function commentsByBlogPost($pdo, $idArticle){
-    $data = $idArticle;
-    echo "id ds comments : " . $data;
+
+    $queryComments = "SELECT comments.content, authors.name FROM comments JOIN articles ON comments.articles_id = articles.id JOIN authors ON comments.authors_id = authors.id AND articles.id = $idArticle";
+    $arrayComments = array();
+    foreach ($pdo->query($queryComments) as $row){
+        $arrayComments[] = array(
+            "name" => $row['name'],
+            "content" => $row['content']
+        );
+    }
+
+    var_dump($arrayComments);
     //return commentaire de l'article avec leur auteur associé
     return $data;
 }
