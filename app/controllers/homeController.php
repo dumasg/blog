@@ -10,7 +10,6 @@ try{
     echo ("Nous avons eu une exception : " . $e->getMessage() . "\n");
 }
 
+include "../ressources/views/home.tpl.php";
+
 ?>
-
-
-<?php include "../ressources/views/home.tpl.php"; ?>
