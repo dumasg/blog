@@ -1,7 +1,5 @@
 <?php
 
-include '../config/database.php';
-
 $routerArray = [
     "accueil"
 ];
