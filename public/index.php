@@ -14,5 +14,5 @@ if(array_search($router, $routerArray) !== false){
     $i = array_search($router, $routerArray);
     require "../app/controllers/" . $routerArray[$i] . ".php";
 }else{
-    require "./" . "notfound.php";
+    require "../ressources/views/errors/" . "404.php";
 }
