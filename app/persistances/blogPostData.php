@@ -47,3 +47,10 @@ function commentsByBlogPost(PDO $pdo, $idArticle){
     //return commentaire de l'article avec leur auteur associé
     return $arrayComments;
 }
+
+function blogPostCreate(PDO $pdo, $data){
+    var_dump($data);
+    $queryCreate = "INSERT INTO articles ( title, content, publication_date, end_publication_date, rating, authors_id ) VALUES (?, ?, ?, ?, ?, (SELECT id FROM authors WHERE name = ?) )";
+    PDOStatement : $stmt = $pdo -> prepare($queryCreate);
+    $stmt -> execute([$data['title'], $data['content'], $data['publication_date'], $data['end_publication_date'], $data['rating'], $data['name']]);
+}
