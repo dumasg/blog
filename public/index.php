@@ -5,7 +5,8 @@
 $routerArray = [
     "home",
     "blogPost",
-    "blogPostCreate"
+    "blogPostCreate",
+    "blogPostModify"
 ];
 
 $router = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_URL);
