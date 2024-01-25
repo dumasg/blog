@@ -11,5 +11,3 @@ try{
 }
 
 include "../ressources/views/home.tpl.php";
-
-?>

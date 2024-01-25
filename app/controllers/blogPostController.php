@@ -3,7 +3,7 @@
 require ("../app/persistances/blogPostData.php");
 require ("../config/database.php");
 
-$idPost = $router = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_URL);
+$idPost = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_URL);
 try{
     $article = blogPostById($pdo, $idPost);
     //var_dump($article);

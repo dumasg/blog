@@ -7,8 +7,7 @@ ratingInput.addEventListener('input', (e) => {
         spanRating.innerText = e.target.value
 })
 
-if(!rating){
+if((!rating) && (!location.search.split("=")[1].split("&")[0] == "blogPostModify")){
     spanRating.innerText = 0
 }
-
 

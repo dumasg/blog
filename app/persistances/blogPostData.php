@@ -49,8 +49,24 @@ function commentsByBlogPost(PDO $pdo, $idArticle){
 }
 
 function blogPostCreate(PDO $pdo, $data){
-    var_dump($data);
     $queryCreate = "INSERT INTO articles ( title, content, publication_date, end_publication_date, rating, authors_id ) VALUES (?, ?, ?, ?, ?, (SELECT id FROM authors WHERE name = ?) )";
     PDOStatement : $stmt = $pdo -> prepare($queryCreate);
     $stmt -> execute([$data['title'], $data['content'], $data['publication_date'], $data['end_publication_date'], $data['rating'], $data['name']]);
+}
+
+function blogPostByIDForModification(PDO $pdo, $idArticle){
+    $queryCallForModification = "SELECT articles.id AS id, title, content, end_publication_date, rating, name FROM articles JOIN authors ON articles.authors_id = authors.id AND articles.id = ?";
+    PDOStatement : $stmt = $pdo -> prepare($queryCallForModification);
+    $stmt -> execute([$idArticle]);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result;
+}
+
+function blogPostUpdate(PDO $pdo, $data, $idPost){
+    $queryUpdate = "UPDATE articles
+        SET id = :id, title = :title, content = :content, end_publication_date = :end_publication_date, rating = :rating
+        WHERE id = :id
+    ";
+    PDOStatement : $stmt = $pdo->prepare($queryUpdate);
+    $stmt -> execute(["id"=>$idPost, "title"=>$data['title'], "content"=>$data['content'], "end_publication_date"=>$data['end_publication_date'], "rating"=>$data['rating']]);
 }

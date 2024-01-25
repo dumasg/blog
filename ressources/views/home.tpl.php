@@ -5,7 +5,7 @@
     <?php foreach ($result as $key => $value) { ?>
         <div class="card-article">
             <div class="content-card-article" onclick="window.location.href=`/?action=blogPost&id=<?= $value['id'] ?>`">
-                <h1 class="title-article">Title : <?= $value['title'] ?></h1>
+                <h1 class="title-article"><?= $value['title'] ?></h1>
                 <p class="content-article"><?= $value['content'] ?></p>
                 <div>
                     <h4 class="author-article">Auteur : <?= $value['name'] ?></h4>
