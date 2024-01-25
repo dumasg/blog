@@ -70,3 +70,9 @@ function blogPostUpdate(PDO $pdo, $data, $idPost){
     PDOStatement : $stmt = $pdo->prepare($queryUpdate);
     $stmt -> execute(["id"=>$idPost, "title"=>$data['title'], "content"=>$data['content'], "end_publication_date"=>$data['end_publication_date'], "rating"=>$data['rating']]);
 }
+
+function blogPostDelete(PDO $pdo, $idArticle){
+    $queryDelete = "DELETE FROM articles WHERE id = :id";
+    PDOStatement : $stmt = $pdo->prepare($queryDelete);
+    $stmt -> execute(["id"=>$idArticle]);
+}

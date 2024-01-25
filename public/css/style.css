@@ -89,17 +89,23 @@ header {
             cursor: pointer;
         }
 
-        > .img-edit-article img {
-            width: 40px;
-            height: 40px;
-            transition: ease-in-out .3s;
+        > .container-call-to-action {
+            display: flex;
+            flex-direction: row;
+            > .call-to-action img {
+                width: 40px;
+                height: 40px;
+                margin: 0 20px;
+                transition: ease-in-out .3s;
 
+            }
+            > .call-to-action img:hover {
+                transform: scale(1.1);
+                transition: ease-in-out .3s;
+                cursor: pointer;
+            }
         }
-        > .img-edit-article img:hover {
-            transform: scale(1.1);
-            transition: ease-in-out .3s;
-            cursor: pointer;
-        }
+
     }
 }
 
