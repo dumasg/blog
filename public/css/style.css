@@ -7,19 +7,21 @@
 }
 
 
-a:hover{
+a:hover {
     color: black;
     cursor: pointer;
 }
-a:visited{
+
+a:visited {
     color: black;
 }
-a{
+
+a {
     color: black;
     text-decoration: none;
 }
 
-header{
+header {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -29,70 +31,94 @@ header{
     padding: 0 20px;
 }
 
-.navbar{
-    ul{
+.navbar {
+    ul {
         display: flex;
         flex-direction: row;
-        li{
+
+        li {
             padding: 0 10px;
             margin: 0 10px;
         }
     }
+
     > a, a:visited, a:hover {
         color: white;
     }
 }
 
-.container{
+.container {
     max-width: 1400px;
     margin: 50px auto;
 }
 
-.container-articles{
+
+.container-articles {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 30px;
+
+    > h2 {
+        color: #333;
+    }
+
+    .card-article {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #b6b6b6;
+        padding: 15px;
+
+        > .content-card-article {
+            transition: ease-in-out .3s;
+
+            > .title-article {
+                color: #007BFF !important;
+            }
+
+            > .content-article, .author-article {
+                color: #555555;
+            }
+        }
+
+        > .content-card-article:hover {
+            transform: scale(1.02);
+            transition: ease-in-out .3s;
+            cursor: pointer;
+        }
+
+        > .img-edit-article img {
+            width: 40px;
+            height: 40px;
+            transition: ease-in-out .3s;
+
+        }
+        > .img-edit-article img:hover {
+            transform: scale(1.1);
+            transition: ease-in-out .3s;
+            cursor: pointer;
+        }
+    }
 }
 
-.card-article{
-    transition: .3s ease-in-out;
 
-}
-.card-article:hover{
-    transform: scale(1.05);
-    transition: .3s ease-in-out;
-}
-
-.content-card-article{
+.formulaire {
     display: flex;
     flex-direction: column;
-    background: beige;
-    padding: 15px;
-}
 
-.container-article{
-    display: flex;
-    flex-direction: column;
-}
-
-.container-comments{
-    margin-top: 50px;
-}
-
-.formulaire{
-    display: flex;
-    flex-direction: column;
     > div {
         width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         margin: 10px 0;
+
         > input, textarea {
             padding: 5px;
         }
+
         > button {
             width: 200px;
             margin: 0 auto;
@@ -101,7 +127,8 @@ header{
             border: none;
             background: aqua;
         }
-        > button:hover{
+
+        > button:hover {
             cursor: pointer;
         }
     }

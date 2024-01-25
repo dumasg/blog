@@ -17,7 +17,6 @@
             <ul>
                 <li><a href="/">Mon Blog</a></li>
                 <li><a href="/?action=blogPostCreate">Créer un article</a></li>
-
             </ul>
         </nav>
     </header>
