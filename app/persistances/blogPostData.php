@@ -95,5 +95,20 @@ function verificationConnection (PDO $pdo, $cookieEmail){
         ];
     }
     return $result;
+}
 
+function selectAllCategories(PDO $pdo){
+    $querySelectAllCategories = "SELECT id, name FROM categories";
+    $stmt = $pdo->query($querySelectAllCategories);
+    foreach ($stmt->fetchAll() as $row){
+        $categories[] = array(
+            "id" => $row['id'],
+            "name" => $row['name'],
+        );
+    }
+    return $categories;
+}
+
+function blogPostsByCategory(){
+    return "test";
 }

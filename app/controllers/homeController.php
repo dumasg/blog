@@ -3,6 +3,7 @@
 require ("../app/persistances/blogPostData.php");
 require ("../config/database.php");
 
+$value = selectAllCategories($pdo);
 
 try{
     $articles = lastBlogPosts($pdo);

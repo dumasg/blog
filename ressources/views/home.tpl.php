@@ -7,6 +7,11 @@
 
 <div class="container container-articles">
     <h2>Nos articles disponible : </h2>
+    <div>
+        <?php foreach ($value as $key => $data){ ?>
+            <button onclick="window.location.href='?action=blogPostCategory&id=<?= $value[$key]['id'] ?>'" class="btn-primary"><?= $value[$key]['name'] ?></button>
+        <?php } ?>
+    </div>
     <?php foreach ($articles as $key => $value) { ?>
         <div class="card-article">
             <div class="content-card-article" value="<?=$value['id']?>" onclick="window.location.href=`/?action=blogPost&id=<?= $value['id'] ?>`">

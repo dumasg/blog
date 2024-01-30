@@ -37,6 +37,7 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+
     ul {
         display: flex;
         flex-direction: row;
@@ -50,14 +51,17 @@ header {
     > a, a:visited, a:hover {
         color: white;
     }
+}
 
-    button{
+    button {
         padding: 10px 15px;
         margin: 10px;
     }
-    button:hover{
+
+    button:hover {
         cursor: pointer;
     }
+
     .btn-primary{
         background: #007BFF;
         color: #fff;
@@ -89,7 +93,7 @@ header {
         color: black;
         cursor: pointer;
     }
-}
+
 
 .container {
     max-width: 1400px;
