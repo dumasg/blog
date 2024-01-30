@@ -1,20 +1,7 @@
 <?php
-// Permet de récupérer des articles avec comment paramètres :
-    // le titre
-    // le contenu
-    // l'auteur
 function lastBlogPosts(PDO $pdo){
     $querySelectArticlesAndAuthors = "SELECT articles.id AS id,  title, content, name FROM articles JOIN authors ON articles.authors_id = authors.id ORDER BY publication_date DESC LIMIT 10;";
     $arrayArticles = $pdo->query($querySelectArticlesAndAuthors);
-//    $arrayArticles = array();
-//    foreach ($pdo->query($querySelectArticlesAndAuthors) as $row ){
-//        $arrayArticles[] = array(
-//            "id" => $row["id"],
-//            "title" => $row['title'],
-//            "content" => $row['content'],
-//            "name" => $row['name']
-//        );
-//    }
     return $arrayArticles;
 }
 
@@ -94,4 +81,19 @@ function blogLogin(PDO $pdo, $dataUser){
     }else{
         return false;
     }
+}
+
+function verificationConnection (PDO $pdo, $cookieEmail){
+    $queryVerification = "SELECT password, role FROM authors WHERE email = :email";
+    PDOStatement : $stmt = $pdo-> prepare($queryVerification);
+    $stmt -> execute(['email' => $cookieEmail]);
+    //$result = $stmt->fetch(PDO::FETCH_ASSOC);
+    foreach ($stmt as $row){
+        $result = [
+            "password" => $row['password'],
+            "role" => $row['role']
+        ];
+    }
+    return $result;
+
 }

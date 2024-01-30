@@ -5,9 +5,9 @@ require ("../config/database.php");
 
 
 try{
-    $result = lastBlogPosts($pdo);
+    $articles = lastBlogPosts($pdo);
 }catch (Exception $e){
     echo ("Nous avons eu une exception : " . $e->getMessage() . "\n");
 }
 
-include "../ressources/views/home.tpl.php";
+require_once "../ressources/views/home.tpl.php";

@@ -1,8 +1,13 @@
-<?php require "../ressources/views/layouts/header.tpl.php"; ?>
+<?php
+    //require "../ressources/views/layouts/header.tpl.php";
+    require "../app/controllers/blogHeaderController.php"
+?>
+
+
 
 <div class="container container-articles">
     <h2>Nos articles disponible : </h2>
-    <?php foreach ($result as $key => $value) { ?>
+    <?php foreach ($articles as $key => $value) { ?>
         <div class="card-article">
             <div class="content-card-article" value="<?=$value['id']?>" onclick="window.location.href=`/?action=blogPost&id=<?= $value['id'] ?>`">
                 <h1 class="title-article"><?= $value['title'] ?></h1>

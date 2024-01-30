@@ -1,4 +1,7 @@
-<?php require "../ressources/views/layouts/header.tpl.php";?>
+<?php
+    //require "../ressources/views/layouts/header.tpl.php";
+    require "../app/controllers/blogHeaderController.php"
+?>
 
 <div class="container container-article">
     <h1>Modification de l'article </h1>
