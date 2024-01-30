@@ -5,7 +5,6 @@ require_once ("../config/database.php");
 
 if (isset($_COOKIE['autoConnection'])){
     $dataUser = explode("//", $_COOKIE['autoConnection']);
-    var_dump($dataUser);
     try{
         $result = verificationConnection($pdo, $dataUser[0], $dataUser[2]);
         if (($result['password'] !== $dataUser[1]) || $result['role'] !== $dataUser[2]){

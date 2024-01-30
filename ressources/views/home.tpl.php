@@ -1,6 +1,6 @@
 <?php
     //require "../ressources/views/layouts/header.tpl.php";
-    require "../app/controllers/blogHeaderController.php"
+    require "../app/controllers/blogHeaderController.php";
 ?>
 
 
@@ -16,6 +16,7 @@
                     <h4 class="author-article">Auteur : <?= $value['name'] ?></h4>
                 </div>
             </div>
+            <?php if ($dataUser[2] == "admin"){ ?>
             <div class="container-call-to-action">
                 <div class="call-to-action"
                      onclick="window.location.href=`/?action=blogPostModify&id=<?= $value['id'] ?>`">
@@ -25,8 +26,8 @@
                      onclick="">
                     <img class="img-delete-article" src="../../public/img/icons8-delete.svg" alt="">
                 </div>
-
             </div>
+            <?php } ?>
         </div>
 
     <?php } ?>
