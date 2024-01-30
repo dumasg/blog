@@ -76,3 +76,22 @@ function blogPostDelete(PDO $pdo, $idArticle){
     PDOStatement : $stmt = $pdo->prepare($queryDelete);
     $stmt -> execute(["id"=>$idArticle]);
 }
+
+function blogLogin(PDO $pdo, $dataUser){
+    $queryLogin = "SELECT pseudo, role, password, email FROM authors WHERE email= :email";
+    PDOStatement : $stmt = $pdo->prepare($queryLogin);
+    $stmt -> execute(["email" => $dataUser['email']]);
+    foreach ($stmt as $row){
+        $arrayUser = [
+            "email" => $row['email'],
+            "pwd" => $row['password'],
+            "pseudo" => $row['pseudo'],
+            "role" => $row['role']
+        ];
+    }
+    if ($arrayUser['pwd'] === $dataUser['pwd']){
+        return $arrayUser;
+    }else{
+        return false;
+    }
+}

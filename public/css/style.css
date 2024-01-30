@@ -32,6 +32,11 @@ header {
 }
 
 .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     ul {
         display: flex;
         flex-direction: row;
@@ -44,6 +49,45 @@ header {
 
     > a, a:visited, a:hover {
         color: white;
+    }
+
+    button{
+        padding: 10px 15px;
+        margin: 10px;
+    }
+    button:hover{
+        cursor: pointer;
+    }
+    .btn-primary{
+        background: #007BFF;
+        color: #fff;
+        border: 2px solid #007BFF;
+    }
+    .btn-primary:hover{
+        background: #fff;
+        color: #000;
+        border: 2px solid #007BFF;
+    }
+    .btn-secondary{
+        background: #fff;
+        color: #000;
+        border: 2px solid #007BFF;
+    }
+    .btn-secondary:hover{
+        background: #007BFF;
+        color: #fff;
+        border: 2px solid #007BFF;
+    }
+    .btn-alerte{
+        background: red;
+        border: 2px solid red;
+        color: white;
+    }
+    .btn-alerte:hover{
+        background: white;
+        border: 2px solid red;
+        color: black;
+        cursor: pointer;
     }
 }
 

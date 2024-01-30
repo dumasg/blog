@@ -18,5 +18,13 @@
                 <li><a href="/">Mon Blog</a></li>
                 <li><a href="/?action=blogPostCreate">Créer un article</a></li>
             </ul>
+            <ul>
+                <button onclick="window.location.href='/?action=blogLogin'" class="btn-primary">Connexion</button>
+                <?php if (isset($_COOKIE['autoConnection'])): ?>
+                    <button class="btn-alerte" onclick="window.location.href='?action=blogDisconnect'">Déconnexion</button>
+                <?php else : ?>
+                    <button class="btn-secondary" disabled>Inscription</button>
+                <?php endif; ?>
+            </ul>
         </nav>
     </header>
