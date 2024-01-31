@@ -33,7 +33,7 @@ require "../app/controllers/blogHeaderController.php";
                         <?php if (isset($idComment) && $idComment == $value['id']): ?>
                             <button type="submit" class="btn-primary">Save</button>
                         <?php endif; ?>
-                        <button class="btn-alerte">Delete</button>
+                        <button class="btn-alerte" disabled>Delete</button>
                     </div>
                 </form>
             </div>

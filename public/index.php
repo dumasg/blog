@@ -11,7 +11,8 @@ $routerArray = [
     "blogLogin",
     "blogDisconnect",
     "blogPostCategory",
-    "blogComment"
+    "blogComment",
+    "fluxRss"
 ];
 
 $router = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_URL);
