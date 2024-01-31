@@ -21,7 +21,7 @@
                     <h4 class="author-article">Auteur : <?= $value['name'] ?></h4>
                 </div>
             </div>
-            <?php if ($dataUser[2] == "admin"){ ?>
+            <?php if (isset($dataUser) && $dataUser[2] == "admin"){ ?>
             <div class="container-call-to-action">
                 <div class="call-to-action"
                      onclick="window.location.href=`/?action=blogPostModify&id=<?= $value['id'] ?>`">
