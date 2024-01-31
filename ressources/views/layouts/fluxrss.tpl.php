@@ -6,8 +6,8 @@
         <webMaster><?= $article['name'] ?></webMaster>
         <?php foreach ($comments as $key => $value): ?>
         <item>
-            <author><?= $value['name'] ?></author>
-            <content><?= $value['content'] ?></content>
+            <title><?= $value['name'] ?></title>
+            <description><?= $value['content'] ?></description>
         </item>
         <?php endforeach; ?>
     </channel>
