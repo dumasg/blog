@@ -10,7 +10,8 @@ $routerArray = [
     "blogPostDelete",
     "blogLogin",
     "blogDisconnect",
-    "blogPostCategory"
+    "blogPostCategory",
+    "blogComment"
 ];
 
 $router = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_URL);

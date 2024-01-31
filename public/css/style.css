@@ -187,3 +187,30 @@ header {
         }
     }
 }
+
+.container-article{
+    .title-article {
+        color: #007BFF;
+    }
+    .container-comments{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        > h3{
+            margin-top: 50px;
+            color: #007BFF;
+        }
+        > .box-commentaire{
+            margin-top: 30px;
+            border: 1px solid #9f9f9f;
+            padding: 10px 20px;
+            > h4 {
+                color: #007BFF;
+            }
+            .call-to-action-comments{
+                margin-top: 20px;
+            }
+        }
+    }
+}
+

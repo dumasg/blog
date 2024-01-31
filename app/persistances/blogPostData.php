@@ -6,7 +6,7 @@ function lastBlogPosts(PDO $pdo){
 }
 
 function blogPostById(PDO $pdo,$idArticle){
-    $query = "SELECT title, content, name FROM articles JOIN authors ON articles.authors_id = authors.id AND articles.id = ?";
+    $query = "SELECT articles.id AS id,title, content, name FROM articles JOIN authors ON articles.authors_id = authors.id AND articles.id = ?";
     PDOStatement: $stmt = $pdo->prepare($query);
     $stmt -> execute([$idArticle]);
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -19,12 +19,16 @@ function blogPostById(PDO $pdo,$idArticle){
 function commentsByBlogPost(PDO $pdo, $idArticle){
 
     //$queryComments = "SELECT comments.content, authors.name FROM comments JOIN articles ON comments.articles_id = articles.id JOIN authors ON comments.authors_id = authors.id AND articles.id = $idArticle";
-    $query = "SELECT comments.content, authors.name FROM comments JOIN articles ON comments.articles_id = articles.id JOIN authors ON comments.authors_id = authors.id AND articles.id = ?";
+    $query = "SELECT comments.content, authors.name, comments.id AS id
+        FROM comments 
+        JOIN articles ON comments.articles_id = articles.id 
+        JOIN authors ON comments.authors_id = authors.id AND articles.id = ?";
     PDOStatement : $stmt = $pdo -> prepare($query);
     $stmt -> execute([$idArticle]);
     $arrayComments = array();
     foreach ($stmt as $row){
         $arrayComments[] = array(
+            "id" => $row['id'],
             "name" => $row['name'],
             "content" => $row['content']
         );
@@ -134,3 +138,13 @@ function blogPostsByCategory(PDO $pdo, $idCategory){
     return $arrayArticlesByCatgegory;
 
 }
+
+function modifyComment (PDO $pdo, $arrayModifyComment){
+    $queryModifyComment = "UPDATE comments
+    SET content = :content
+    WHERE id = :id
+    ";
+    PDOStatement : $stmt = $pdo->prepare($queryModifyComment);
+    $stmt -> execute(["id"=>$arrayModifyComment['id'], "content"=>$arrayModifyComment['content']]);
+}
+
