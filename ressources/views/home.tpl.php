@@ -11,6 +11,7 @@
         <?php foreach ($value as $key => $data){ ?>
             <button onclick="window.location.href='?action=blogPostCategory&id=<?= $value[$key]['id'] ?>'" class="btn-primary"><?= $value[$key]['name'] ?></button>
         <?php } ?>
+        <button onclick="window.location.href='/'" class="btn-primary">ALL</button>
     </div>
     <?php foreach ($articles as $key => $value) { ?>
         <div class="card-article">

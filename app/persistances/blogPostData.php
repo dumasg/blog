@@ -109,6 +109,28 @@ function selectAllCategories(PDO $pdo){
     return $categories;
 }
 
-function blogPostsByCategory(){
-    return "test";
+function blogPostsByCategory(PDO $pdo, $idCategory){
+    $queryPostByCategoriy = "
+        SELECT articles.id, articles.title, articles.content, authors.name AS author, categories.name AS category
+        FROM articles
+        INNER JOIN authors ON articles.authors_id = authors.id
+        INNER JOIN articles_categories AS a_c ON a_c.articles_id = articles.id
+        INNER JOIN categories ON a_c.categories_id = categories.id
+        WHERE categories.id = :id;
+    ";
+    PDOStatement : $stmt = $pdo->prepare($queryPostByCategoriy);
+    $stmt -> execute(["id" => $idCategory]);
+    $arrayArticlesByCatgegory = array();
+    foreach ($stmt->fetchAll() as $row){
+        $arrayArticlesByCatgegory[] = [
+            "id" => $row['id'],
+            "title" => $row['title'],
+            "content" => $row['content'],
+            "name" => $row['author'],
+            "category" => $row['category']
+        ];
+    }
+
+    return $arrayArticlesByCatgegory;
+
 }
